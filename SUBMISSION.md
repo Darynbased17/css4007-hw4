@@ -204,7 +204,9 @@ I could have created one monolithic answer_question tool that receives the user'
 
 ### What I changed from Part A while coding
 
-I modified the lookup tool to strictly handle misspelled names without automatically returning a corrected profile. Instead, it now returns a guided error message ("did you mean...?") to force the model to explicitly correct itself, adhering to the Part B requirements.
+I modified lookup returns whole documents, not short facts. It does not apply the correction notice (NR-16) itself, the model applied it. So my description "applies correction notices" was not true for my code.
+Calculate: I added a limit for big powers.
+I used OpenRouter. The cost in the tables is an estimate with gpt-4o-mini price and Run 2 overwrote the logs of run 1, so the committed logs are run 2 only.
 
 ### B2 — Tests
 
@@ -223,13 +225,22 @@ tests/test_tools.py::test_lookup_correct_2025_number PASSED                     
 tests/test_tools.py::test_lookup_misspelled_name PASSED                                                                                [ 70%]
 tests/test_tools.py::test_lookup_similar_names_do_not_mix PASSED                                                                       [ 80%]
 tests/test_tools.py::test_lookup_ignores_archived_profile PASSED                                                                       [ 90%]
-tests/test_tools.py::test_lookup_region_tariff PASSED    git add .
+tests/test_tools.py::test_lookup_region_tariff PASSED  
 
 ### B3 — The loop
 
 Round limit, and why: I set the round limit to 10. Looking at the hand-crafted Q-09 example, a complex question takes about 4-5 tool calls (2 lookups, 2-3 calculations). Allowing up to 10 rounds gives the model enough buffer to recover from typos or errors without getting stuck in an infinite, expensive loop.
 
 Where the logs are: Saved as JSON files inside the outputs/ folder.
+
+- Real Q-09 conversation compared with my A3 version, what is different: Source: `outputs/Q-09_log.json`
+  (run 2). Same as A3: round 1 sent two parallel `lookup` calls (Brightwater, Millbrook). Different:
+  (1) my `lookup` returned the whole text of NR-05 (area 912.4) plus the raw text of NR-16; it did not
+  apply the correction. The model did that itself and used 921.4. In A3 I had assumed the tool applies it.
+  (2) In round 2 the model called `calculate("44675 / 921.4 - 37203 / 758.6")` with the subtraction in the
+  reverse order and got -0.5557, then in round 3 computed the two densities separately.
+  Total: 5 tool calls in 4 rounds, against 5 calls in 3 rounds in A3.
+  (3) The final text said 0.56 and not 0.6; the scorer rounds it to 1 decimal, so it counts as correct.
 
 ### B4 — Three strategies
 
@@ -282,6 +293,18 @@ Answer format: Strictly enforced the ANSWER: <name> | <number> format via the sy
 | Q-19 | ✓ | ✓ | ✓ |
 | Q-20 | ✓ | ✗ | ✓ |
 
+**Scoring bug found afterwards.** My regex `[-\d.]+` stops at a thousands separator, so `ANSWER: yes | 14,069`
+was read as 14. `rescore.py` re-scores the saved run 2 logs with commas removed (nothing else changed):
+
+| Run 2 | Original rule | Comma-tolerant |
+|---|---:|---:|
+| S1 | 16 | 18 |
+| S2 | 16 | 20 |
+| S3 | 18 | 20 |
+
+The first column is the rule I fixed before the run. The second is a correction; the difference is
+caused by the scorer, not the model.
+
 ## Part C — Explain and choose (Hard)
 
 ### C1 — Does the tool description matter?
@@ -303,37 +326,47 @@ In an LLM, a tool description is not just documentation—it is the semantic pro
 
 ### C2 — Three mistakes explained
 
-S1 (Q-12): Hallucination in context.
-Without tools, the model attempted to perform arithmetic (budget divided by pupils) purely within its context window. It hallucinated the math, resulting in an incorrect difference. It also formatted the output as 64.25 (meaning "64.25 thousand"), whereas the exact raw number in tenge was expected.
-Why voting doesn't fix this: "Think and vote" (S2) struggles here because LLMs often confidently hallucinate the exact same wrong arithmetic step across multiple samples, meaning the "consensus" vote is just the most popular hallucination.
+**S1, Q-12 (real model error).** Log: `ANSWER: Tarnvale | 64.25 thousand tenge per pupil`, expected 64.4.
+The model divided 12,960.3 / 10,652 and 16,021.7 / 13,904 in its head and rounded; the error 0.14 is
+bigger than the tolerance 0.1. S3 sent the same divisions to `calculate` and gave 64.4. A language model
+produces digits token by token and has no exact arithmetic unit, so rounding slips accumulate; the
+calculator is exact, and the model only has to choose the expression, which is a much smaller thing to
+get wrong.
+S2 fixed this question: its five samples gave 64.39, 64.4, 64.39, 64.4 and 0.064. The odd sample (a unit
+slip) was outvoted. Voting reduces independent random errors, because they rarely agree with each other.
 
-S2 (Q-06): Formatting drift.
-The S2 log shows the model's step-by-step reasoning was flawless: it correctly retrieved the populations and calculated the exact difference (45,051 − 30,982 = 14,069). However, in the final answer string, it included a thousand-separator comma: ANSWER: yes | 14,069. Our evaluation regex ([-\d.]+) stopped at the comma, extracting 14.0.
-Why tools fix this: Tools abstract the arithmetic away from the model's text generation. When calculate returns 14069.0, the model is much more likely to just copy that exact string into its final answer without trying to "beautify" it with commas.
+**S2, Q-06 (scoring artefact, not reasoning).** The voted answer was `yes | 14.0`. Three of five samples
+wrote `14,069` with a comma and two wrote `14069`; my regex read the comma ones as 14, so the wrong
+value won 3 to 2. The reasoning was right in every sample. Voting does not help here, because all samples
+share the same habit; it only cancels errors that are independent between samples, not a systematic bias
+of the model or of my parser. The cost: S2 sent the documents five times and asked for step by step text:
+216,495 input and 44,851 output tokens against 43,079 and 6,792 for S1.
 
-S3 (Q-05): Over-helpful formatting.
-The model used the lookup and calculate tools perfectly, arriving at the exact difference (14235.314...). However, in the final round, it voluntarily rounded the number and added a comma: ANSWER: Coldharbour | 14,235. Again, the regex parsed this as 14.0.
-Why rounds cost more: Each time the loop runs, the previous tool calls and their results are appended to the messages array. By round 4, the model has to process the entire history of rounds 1-3 as input tokens, making each subsequent round strictly more expensive than the last.
+**S3, Q-05 (scoring artefact).** The tools gave the exact difference (14235.31...), but the final line was
+`ANSWER: Coldharbour | 14,235`; the comma made the parser read 14. Q-05 failed in all three strategies for
+the same reason, and Q-05, Q-18 and Q-20 were the only cases where S3 failed. In this run the calculator
+removed the arithmetic errors, but not the formatting of the final line, because the model writes
+that line itself. Rounds: the model must see the result of one call before it decides the next, so Q-11
+(three districts) needed 8 tool calls over 3 tool rounds plus the final answer. Each round re-sends the
+whole history (system prompt, question, earlier calls and results), so input grows with every round:
+Q-11 used 3,087 input tokens in S3, more than the 2,163 of S1 (which has all documents), although S3
+has no documents in the prompt.
 
 ### C3 — Which strategy I would use, and what would change it
 
-I would definitively choose S3 (Tools).
-
-Comparing the data, S3 achieved near-perfect accuracy (20/20 on run 1, 18/20 on run 2, with failures only due to regex comma parsing). It was drastically cheaper than S2 (~$0.009 vs ~$0.059) and slightly cheaper than S1, while completing questions in an acceptable median time of ~8.7 seconds. S1 is too inaccurate for data extraction, and S2 is prohibitively expensive (costing 6x more tokens) without actually matching S3's accuracy.
-
-Exceptions:
-
-A strict time limit (e.g., sub-5 seconds): I would use S1. It is a single API call and finishes in ~4.6 seconds. S3's loop inherently takes longer due to multiple network round-trips.
-
-100,000 documents: I would use S3, but I would have to upgrade the lookup tool to use vector search or BM25 indexing. S1 and S2 would instantly fail because 100,000 documents exceed the context window.
+I would use S3 (tools). After fixing the comma problem, S2 and S3 both got 20/20 in run 2 and S1 got 18/20.
+S3 is about 6x cheaper than S2 ($0.009 vs $0.059) and about 3x faster (8.6 s vs 26.1 s median).
+S1 is fast and cheap, but it made two real mistakes (Q-12, Q-20), so I do not trust it for numbers.
+S2 is accurate but too expensive for the same result.
+I would choose S1 if I need an answer in under 5 seconds. With 100,000 documents I would use S3 with a
+search index in lookup, because the documents would not fit in a prompt.
 
 ### C4 — How sure I can be
 
-How different were your two runs? Very similar. S1 dropped from 19 to 16, S2 stayed at 16, and S3 dropped slightly from 20 to 18.
-
-Is the difference between your two best strategies bigger than that? Yes. S3 consistently outperformed S2 in both accuracy and cost across both runs.
-
-How many questions would you need before you trusted the result? 20 questions is a decent smoke test, but given the formatting fragility (the comma issue), I would want a test set of at least 100-200 questions covering edge cases (zero values, negative numbers, missing documents) to confidently trust the pipeline in production.
+Run 1 and run 2 differ by 2-3 questions (S1 19 to 16, S3 20 to 18), so with 20 questions a difference of
+1-2 questions is just noise. S2 and S3 are equal after the comma fix, so I cannot say which is more
+accurate. I can only say that S3 is cheaper and faster, and that difference is large in both runs.
+To trust an accuracy ranking I would need about 100 questions and several runs.
 
 ### Final questions
 
