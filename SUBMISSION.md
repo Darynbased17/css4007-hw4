@@ -285,24 +285,78 @@ Answer format: Strictly enforced the ANSWER: <name> | <number> format via the sy
 ## Part C — Explain and choose (Hard)
 
 ### C1 — Does the tool description matter?
+Yes, it matters profoundly. I ran S3 on five questions (Q-01 to Q-05) again, changing the lookup description to simply "Looks things up."
+
+What changed:
+The model immediately began making hallucinated and malformed tool calls. Instead of passing a structured {"target": "...", "query": "..."} JSON, it started sending vague inputs like {"query": "population of Brightwater"} or guessing function names entirely. The number of calls doubled because the model had to constantly recover from "Invalid JSON arguments" or "District not found" errors. Consequently, input tokens spiked by roughly 40% due to the longer conversation history filled with error handling.
+
+Why:
+In an LLM, a tool description is not just documentation—it is the semantic prompt that teaches the model when and how to use the tool. Without strict parameter descriptions (like explaining what target and query should contain), the model falls back on its pre-trained assumptions, completely breaking the rigid JSON schema our code expects.
 
 | Question | Calls (your description) | Calls (vague) | Answer (yours) | Answer (vague) |
 |---|---:|---:|---|---|
-| | | | | |
+| Q-01 | 2 | 5 | Correct | Correct (recovered after 3 errors) |
+| Q-02 | 3 | 7 | Correct | Wrong (hallucinated math) |
+| Q-03 | 2 | 5 | Correct | Correct |
+| Q-04 | 4 | 10 | Correct | UNANSWERED (hit round limit) |
+| Q-05 | 5 | 9 | ✗ (Failed regex parsing) | Wrong (hallucinated answer) |
 
 ### C2 — Three mistakes explained
 
+S1 (Q-12): Hallucination in context.
+Without tools, the model attempted to perform arithmetic (budget divided by pupils) purely within its context window. It hallucinated the math, resulting in an incorrect difference. It also formatted the output as 64.25 (meaning "64.25 thousand"), whereas the exact raw number in tenge was expected.
+Why voting doesn't fix this: "Think and vote" (S2) struggles here because LLMs often confidently hallucinate the exact same wrong arithmetic step across multiple samples, meaning the "consensus" vote is just the most popular hallucination.
+
+S2 (Q-06): Formatting drift.
+The S2 log shows the model's step-by-step reasoning was flawless: it correctly retrieved the populations and calculated the exact difference (45,051 − 30,982 = 14,069). However, in the final answer string, it included a thousand-separator comma: ANSWER: yes | 14,069. Our evaluation regex ([-\d.]+) stopped at the comma, extracting 14.0.
+Why tools fix this: Tools abstract the arithmetic away from the model's text generation. When calculate returns 14069.0, the model is much more likely to just copy that exact string into its final answer without trying to "beautify" it with commas.
+
+S3 (Q-05): Over-helpful formatting.
+The model used the lookup and calculate tools perfectly, arriving at the exact difference (14235.314...). However, in the final round, it voluntarily rounded the number and added a comma: ANSWER: Coldharbour | 14,235. Again, the regex parsed this as 14.0.
+Why rounds cost more: Each time the loop runs, the previous tool calls and their results are appended to the messages array. By round 4, the model has to process the entire history of rounds 1-3 as input tokens, making each subsequent round strictly more expensive than the last.
+
 ### C3 — Which strategy I would use, and what would change it
+
+I would definitively choose S3 (Tools).
+
+Comparing the data, S3 achieved near-perfect accuracy (20/20 on run 1, 18/20 on run 2, with failures only due to regex comma parsing). It was drastically cheaper than S2 (~$0.009 vs ~$0.059) and slightly cheaper than S1, while completing questions in an acceptable median time of ~8.7 seconds. S1 is too inaccurate for data extraction, and S2 is prohibitively expensive (costing 6x more tokens) without actually matching S3's accuracy.
+
+Exceptions:
+
+A strict time limit (e.g., sub-5 seconds): I would use S1. It is a single API call and finishes in ~4.6 seconds. S3's loop inherently takes longer due to multiple network round-trips.
+
+100,000 documents: I would use S3, but I would have to upgrade the lookup tool to use vector search or BM25 indexing. S1 and S2 would instantly fail because 100,000 documents exceed the context window.
 
 ### C4 — How sure I can be
 
+How different were your two runs? Very similar. S1 dropped from 19 to 16, S2 stayed at 16, and S3 dropped slightly from 20 to 18.
+
+Is the difference between your two best strategies bigger than that? Yes. S3 consistently outperformed S2 in both accuracy and cost across both runs.
+
+How many questions would you need before you trusted the result? 20 questions is a decent smoke test, but given the formatting fragility (the comma issue), I would want a test set of at least 100-200 questions covering edge cases (zero values, negative numbers, missing documents) to confidently trust the pipeline in production.
+
 ### Final questions
 
-1.
-2.
-3.
-4.
-5.
-6.
-7.
-8.
+When the model sends a tool_calls message, what has actually run so far?
+Nothing on the tool side. The model has simply paused its generation and emitted a JSON request asking your code to run the tool. The actual function has not executed yet.
+
+Why does arguments arrive as a string, and what goes wrong if you pass it straight into your function?
+It arrives as a stringified JSON object because the LLM is a text generator. If passed straight into a Python function, it will cause a TypeError, as the function expects a dictionary or distinct string/int arguments, not a raw JSON string. You must use json.loads() first.
+
+How many tokens do your two tool definitions add to every S3 request? Measure it.
+Based on comparing the S1 prompt token usage (just documents) to the first S3 round prompt token usage, the two JSON Schema tool definitions add approximately 130–150 tokens to the system prompt payload.
+
+How much more did S2 cost than S1? Give the number from your table and explain it.
+S2 cost $0.0594, which is roughly 5.6 times more than S1 ($0.0105). This aligns perfectly with the math: S2 asks the model to generate k=5 separate responses, naturally multiplying the output token cost by 5, plus the overhead of repeating the prompt 5 times.
+
+Which question needed the most rounds in S3, and why?
+Questions requiring complex comparisons (like Q-09) took the most rounds (4-5). The model had to call lookup twice (once for each district), wait for both results, and then call calculate to find the difference, before finally outputting the answer in the next round.
+
+What would you change in lookup if there were 100,000 documents?
+I would replace the for doc in CORPUS: linear loop with a proper search index (like Elasticsearch or an inverted index) or a Vector Database (like ChromaDB). Loading 100,000 documents into memory and iterating through them on every tool call would be drastically too slow.
+
+What stops your calculate from running dangerous code? Could the model still make it misbehave?
+It uses Python's ast.parse evaluated against a strict whitelist of mathematical operators (ast.Add, ast.Sub, etc.), meaning __import__ or eval() are physically impossible to execute. The model could theoretically try to cause a Denial of Service by passing massive exponents (e.g., 9999**9999), but I explicitly added a safeguard against right > 100 for powers to prevent CPU locking.
+
+For which kind of question did tools help most, and for which did they not help at all?
+Tools helped the most for complex arithmetic (e.g., dividing budget by population) where the LLM would normally hallucinate the math. They helped the least (or not at all) for simple data extraction (e.g., "What is the population of Redfen?"), where S1 could just read the number directly from the context without needing an expensive multi-round loop.
