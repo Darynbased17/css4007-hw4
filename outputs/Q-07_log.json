@@ -1,0 +1,107 @@
+{
+  "question": {
+    "id": "Q-07",
+    "question": "Which district has more paved road per 1,000 residents in 2025, Coldharbour or Stonecairn, and by how many km per 1,000 residents?",
+    "answer": "Coldharbour",
+    "value": 18.5,
+    "unit": "km per 1,000 residents",
+    "decimals": 2,
+    "sources": [
+      "NR-12",
+      "NR-06"
+    ]
+  },
+  "S1": {
+    "answer": "Coldharbour:  \n- Coldharbour: \\(598.3 \\div 11.407 = 52.45\\) km per 1,000 residents  \n- Stonecairn: \\(506.8 \\div 14.926 = 33.95\\) km per 1,000 residents  \n\nDifference: \\(52.45 - 33.95 = 18.50\\) km per 1,000 residents.\n\nANSWER: Coldharbour | 18.50 km per 1,000 residents",
+    "input_tokens": 2158,
+    "output_tokens": 325,
+    "time": 4.775326490402222,
+    "log": [
+      {
+        "strategy": "S1",
+        "content": "Coldharbour:  \n- Coldharbour: \\(598.3 \\div 11.407 = 52.45\\) km per 1,000 residents  \n- Stonecairn: \\(506.8 \\div 14.926 = 33.95\\) km per 1,000 residents  \n\nDifference: \\(52.45 - 33.95 = 18.50\\) km per 1,000 residents.\n\nANSWER: Coldharbour | 18.50 km per 1,000 residents"
+      }
+    ],
+    "correct": true
+  },
+  "S2": {
+    "answers": [
+      "1. **Coldharbour:**  \n   \\(598.3 \\div 11,407 \\times 1,000 = 52.45\\) km of paved road per 1,000 residents.\n\n2. **Stonecairn:**  \n   \\(506.8 \\div 14,926 \\times 1,000 = 33.95\\) km per 1,000 residents.\n\n3. **Difference:**  \n   \\(52.45 - 33.95 = 18.50\\) km per 1,000 residents.\n\nTherefore, **Coldharbour** has more paved road per 1,000 residents, by **18.50 km per 1,000 residents**.\n\nANSWER: Coldharbour | 18.50",
+      "Using the 2025 census populations and paved-road lengths:\n\n1. **Coldharbour**:  \n   \\(598.3 \\text{ km} \\div 11,407 \\text{ residents} \\times 1,000 = 52.45\\) km per 1,000 residents.\n\n2. **Stonecairn**:  \n   \\(506.8 \\text{ km} \\div 14,926 \\text{ residents} \\times 1,000 = 33.95\\) km per 1,000 residents.\n\n3. Difference:  \n   \\(52.45 - 33.95 = 18.50\\) km per 1,000 residents.\n\nTherefore, **Coldharbour has more paved road**, by approximately **18.50 km per 1,000 residents**.\n\nANSWER: Coldharbour | 18.50",
+      "Using 2025 population and paved-road figures:\n\n1. **Coldharbour:**  \n   \\(598.3 \\div 11,407 \\times 1,000 = 52.45\\) km per 1,000 residents.\n\n2. **Stonecairn:**  \n   \\(506.8 \\div 14,926 \\times 1,000 = 33.95\\) km per 1,000 residents.\n\n3. **Difference:**  \n   \\(52.45 - 33.95 = 18.50\\) km per 1,000 residents.\n\nColdharbour has more paved road per 1,000 residents, by approximately **18.50 km per 1,000 residents**.\n\nANSWER: Coldharbour | 18.50",
+      "1. **Coldharbour:**  \n   \\[\n   \\frac{598.3\\text{ km}}{11,407\\text{ residents}}\\times 1,000\n   = 52.45\\text{ km per 1,000 residents}\n   \\]\n\n2. **Stonecairn:**  \n   \\[\n   \\frac{506.8\\text{ km}}{14,926\\text{ residents}}\\times 1,000\n   = 33.95\\text{ km per 1,000 residents}\n   \\]\n\n3. **Difference:**  \n   \\[\n   52.45-33.95=18.50\\text{ km per 1,000 residents}\n   \\]\n\nTherefore, **Coldharbour** has more paved road per 1,000 residents, by **18.50 km per 1,000 residents**.\n\nANSWER: Coldharbour | 18.50",
+      "Using the 2025 figures:\n\n1. **Coldharbour:**  \n   \\[\n   \\frac{598.3\\text{ km}}{11,407\\text{ residents}}\\times 1,000\n   = 52.45\\text{ km per 1,000 residents}\n   \\]\n\n2. **Stonecairn:**  \n   \\[\n   \\frac{506.8\\text{ km}}{14,926\\text{ residents}}\\times 1,000\n   = 33.95\\text{ km per 1,000 residents}\n   \\]\n\n3. **Difference:**  \n   \\[\n   52.45-33.95=18.50\\text{ km per 1,000 residents}\n   \\]\n\nTherefore, **Coldharbour** has more paved road per 1,000 residents, by **18.50 km per 1,000 residents**.\n\nANSWER: Coldharbour | 18.50"
+    ],
+    "input_tokens": 10845,
+    "output_tokens": 1950,
+    "time": 26.092710494995117,
+    "log": [
+      {
+        "sample_1": "1. **Coldharbour:**  \n   \\(598.3 \\div 11,407 \\times 1,000 = 52.45\\) km of paved road per 1,000 residents.\n\n2. **Stonecairn:**  \n   \\(506.8 \\div 14,926 \\times 1,000 = 33.95\\) km per 1,000 residents.\n\n3. **Difference:**  \n   \\(52.45 - 33.95 = 18.50\\) km per 1,000 residents.\n\nTherefore, **Coldharbour** has more paved road per 1,000 residents, by **18.50 km per 1,000 residents**.\n\nANSWER: Coldharbour | 18.50"
+      },
+      {
+        "sample_2": "Using the 2025 census populations and paved-road lengths:\n\n1. **Coldharbour**:  \n   \\(598.3 \\text{ km} \\div 11,407 \\text{ residents} \\times 1,000 = 52.45\\) km per 1,000 residents.\n\n2. **Stonecairn**:  \n   \\(506.8 \\text{ km} \\div 14,926 \\text{ residents} \\times 1,000 = 33.95\\) km per 1,000 residents.\n\n3. Difference:  \n   \\(52.45 - 33.95 = 18.50\\) km per 1,000 residents.\n\nTherefore, **Coldharbour has more paved road**, by approximately **18.50 km per 1,000 residents**.\n\nANSWER: Coldharbour | 18.50"
+      },
+      {
+        "sample_3": "Using 2025 population and paved-road figures:\n\n1. **Coldharbour:**  \n   \\(598.3 \\div 11,407 \\times 1,000 = 52.45\\) km per 1,000 residents.\n\n2. **Stonecairn:**  \n   \\(506.8 \\div 14,926 \\times 1,000 = 33.95\\) km per 1,000 residents.\n\n3. **Difference:**  \n   \\(52.45 - 33.95 = 18.50\\) km per 1,000 residents.\n\nColdharbour has more paved road per 1,000 residents, by approximately **18.50 km per 1,000 residents**.\n\nANSWER: Coldharbour | 18.50"
+      },
+      {
+        "sample_4": "1. **Coldharbour:**  \n   \\[\n   \\frac{598.3\\text{ km}}{11,407\\text{ residents}}\\times 1,000\n   = 52.45\\text{ km per 1,000 residents}\n   \\]\n\n2. **Stonecairn:**  \n   \\[\n   \\frac{506.8\\text{ km}}{14,926\\text{ residents}}\\times 1,000\n   = 33.95\\text{ km per 1,000 residents}\n   \\]\n\n3. **Difference:**  \n   \\[\n   52.45-33.95=18.50\\text{ km per 1,000 residents}\n   \\]\n\nTherefore, **Coldharbour** has more paved road per 1,000 residents, by **18.50 km per 1,000 residents**.\n\nANSWER: Coldharbour | 18.50"
+      },
+      {
+        "sample_5": "Using the 2025 figures:\n\n1. **Coldharbour:**  \n   \\[\n   \\frac{598.3\\text{ km}}{11,407\\text{ residents}}\\times 1,000\n   = 52.45\\text{ km per 1,000 residents}\n   \\]\n\n2. **Stonecairn:**  \n   \\[\n   \\frac{506.8\\text{ km}}{14,926\\text{ residents}}\\times 1,000\n   = 33.95\\text{ km per 1,000 residents}\n   \\]\n\n3. **Difference:**  \n   \\[\n   52.45-33.95=18.50\\text{ km per 1,000 residents}\n   \\]\n\nTherefore, **Coldharbour** has more paved road per 1,000 residents, by **18.50 km per 1,000 residents**.\n\nANSWER: Coldharbour | 18.50"
+      }
+    ],
+    "answer": "ANSWER: Coldharbour | 18.5",
+    "correct": true
+  },
+  "S3": {
+    "answer": "Coldharbour has more paved road per 1,000 residents:\n\n- Coldharbour: 52.45 km per 1,000 residents\n- Stonecairn: 33.95 km per 1,000 residents\n- Difference: 18.50 km per 1,000 residents\n\nANSWER: Coldharbour | 18.50",
+    "input_tokens": 1682,
+    "output_tokens": 410,
+    "time": 9.833462953567505,
+    "log": [
+      {
+        "round": 1,
+        "tool": "lookup",
+        "inputs": "{\"target\":\"Coldharbour\",\"query\":\"2025 population and paved road length in km\"}",
+        "result": "{\"result\": \"[NR-12] Coldharbour district profile (2025): Coldharbour lies on the Cold and was founded in 1845. The 2025 census counted 11,407 residents, up from 11,902 at the 2020 census, on an area of 2,318.0 square kilometres. The district runs 8 schools with 1,611 pupils enrolled in the 2025/26 school year. Its 2025 budget was 2,366.9 million tenge, and it maintains 598.3 km of paved road. Households used 804 megalitres of water in 2025.\"}",
+        "duration_sec": 0.0
+      },
+      {
+        "round": 1,
+        "tool": "lookup",
+        "inputs": "{\"target\":\"Stonecairn\",\"query\":\"2025 population and paved road length in km\"}",
+        "result": "{\"result\": \"[NR-06] Stonecairn district profile (2025): Stonecairn lies on the Cairn Water and was founded in 1837. The 2025 census counted 14,926 residents, up from 15,473 at the 2020 census, on an area of 1,742.3 square kilometres. The district runs 9 schools with 2,017 pupils enrolled in the 2025/26 school year. Its 2025 budget was 2,884.6 million tenge, and it maintains 506.8 km of paved road. Households used 1,062 megalitres of water in 2025.\"}",
+        "duration_sec": 0.0
+      },
+      {
+        "round": 2,
+        "tool": "calculate",
+        "inputs": "{\"expression\":\"598.3 / 11407 * 1000\"}",
+        "result": "{\"result\": \"52.45024984658542\"}",
+        "duration_sec": 0.0
+      },
+      {
+        "round": 2,
+        "tool": "calculate",
+        "inputs": "{\"expression\":\"506.8 / 14926 * 1000\"}",
+        "result": "{\"result\": \"33.95417392469516\"}",
+        "duration_sec": 0.0
+      },
+      {
+        "round": 2,
+        "tool": "calculate",
+        "inputs": "{\"expression\":\"(598.3 / 11407 * 1000) - (506.8 / 14926 * 1000)\"}",
+        "result": "{\"result\": \"18.49607592189026\"}",
+        "duration_sec": 0.0
+      },
+      {
+        "round": 3,
+        "action": "final_answer",
+        "content": "Coldharbour has more paved road per 1,000 residents:\n\n- Coldharbour: 52.45 km per 1,000 residents\n- Stonecairn: 33.95 km per 1,000 residents\n- Difference: 18.50 km per 1,000 residents\n\nANSWER: Coldharbour | 18.50"
+      }
+    ],
+    "correct": true
+  }
+}

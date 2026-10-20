@@ -1,0 +1,115 @@
+{
+  "question": {
+    "id": "Q-17",
+    "question": "At the 2025 household water tariff, which district's households paid more for water per resident in 2025, Harrowfield or Ossbridge, and by how many tenge per resident?",
+    "answer": "Harrowfield",
+    "value": 884,
+    "unit": "tenge per resident",
+    "decimals": 0,
+    "sources": [
+      "NR-07",
+      "NR-01",
+      "NR-15"
+    ]
+  },
+  "S1": {
+    "answer": "Harrowfield households paid more.\n\n- Harrowfield: \\(7,146,000 \\text{ m}^3 \\times 142.35 \\div 90,212 = 11,278.94\\) tenge per resident\n- Ossbridge: \\(3,862,000 \\text{ m}^3 \\times 142.35 \\div 52,904 = 10,394.48\\) tenge per resident\n\nDifference: **884.46 tenge per resident**.\n\nANSWER: Harrowfield | 884.46 tenge per resident",
+    "input_tokens": 2160,
+    "output_tokens": 897,
+    "time": 8.97026515007019,
+    "log": [
+      {
+        "strategy": "S1",
+        "content": "Harrowfield households paid more.\n\n- Harrowfield: \\(7,146,000 \\text{ m}^3 \\times 142.35 \\div 90,212 = 11,278.94\\) tenge per resident\n- Ossbridge: \\(3,862,000 \\text{ m}^3 \\times 142.35 \\div 52,904 = 10,394.48\\) tenge per resident\n\nDifference: **884.46 tenge per resident**.\n\nANSWER: Harrowfield | 884.46 tenge per resident"
+      }
+    ],
+    "correct": true
+  },
+  "S2": {
+    "answers": [
+      "1. Convert household water use from megalitres to cubic metres:  \n   - Harrowfield: \\(7,146 \\times 1,000 = 7,146,000\\) m³  \n   - Ossbridge: \\(3,862 \\times 1,000 = 3,862,000\\) m³\n\n2. Calculate total household water payments at 142.35 tenge per m³:  \n   - Harrowfield: \\(7,146,000 \\times 142.35 = 1,017,233,100\\) tenge  \n   - Ossbridge: \\(3,862,000 \\times 142.35 = 549,755,700\\) tenge\n\n3. Calculate payment per resident:  \n   - Harrowfield: \\(1,017,233,100 \\div 90,212 \\approx 11,276.03\\) tenge  \n   - Ossbridge: \\(549,755,700 \\div 52,904 \\approx 10,391.57\\) tenge\n\n4. Difference:  \n   \\(11,276.03 - 10,391.57 = 884.46\\) tenge per resident.\n\nTherefore, Harrowfield households paid more, by approximately **884.46 tenge per resident**.\n\nANSWER: Harrowfield | 884.46",
+      "1. **Convert household water use to cubic metres:**\n   - Harrowfield: \\(7{,}146\\) megalitres \\(= 7{,}146{,}000\\) m³\n   - Ossbridge: \\(3{,}862\\) megalitres \\(= 3{,}862{,}000\\) m³\n\n2. **Calculate water use per resident:**\n   - Harrowfield: \\(7{,}146{,}000 \\div 90{,}212 \\approx 79.2134\\) m³ per resident\n   - Ossbridge: \\(3{,}862{,}000 \\div 52{,}904 \\approx 73.0002\\) m³ per resident\n\n3. **Apply the 2025 tariff of 142.35 tenge per m³:**\n   - Harrowfield: \\(79.2134 \\times 142.35 \\approx 11{,}274.52\\) tenge per resident\n   - Ossbridge: \\(73.0002 \\times 142.35 \\approx 10{,}390.06\\) tenge per resident\n\n4. **Difference:**\n   \\[\n   11{,}274.52 - 10{,}390.06 \\approx 884.46\n   \\]\n\n**Harrowfield households paid more, by approximately 884.46 tenge per resident.**\n\nANSWER: Harrowfield | 884.46 tenge per resident",
+      "1. Convert household water use from megalitres to cubic metres:\n   - Harrowfield: \\(7,146 \\times 1,000 = 7,146,000\\) m³\n   - Ossbridge: \\(3,862 \\times 1,000 = 3,862,000\\) m³\n\n2. Calculate water use per resident:\n   - Harrowfield: \\(7,146,000 \\div 90,212 \\approx 79.2134\\) m³ per resident\n   - Ossbridge: \\(3,862,000 \\div 52,904 \\approx 73.0002\\) m³ per resident\n\n3. Apply the 2025 tariff of 142.35 tenge per m³:\n   - Harrowfield: \\(79.2134 \\times 142.35 \\approx 11,276.03\\) tenge per resident\n   - Ossbridge: \\(73.0002 \\times 142.35 \\approx 10,391.57\\) tenge per resident\n\n4. Difference:\n   \\[\n   11,276.03 - 10,391.57 = 884.46\n   \\]\n\nHarrowfield households paid more, by approximately 884.46 tenge per resident.\n\nANSWER: Harrowfield | 884.46 tenge per resident",
+      "1. Convert household water use from megalitres to cubic metres:\n   - Harrowfield: \\(7,146 \\times 1,000 = 7,146,000\\) m³\n   - Ossbridge: \\(3,862 \\times 1,000 = 3,862,000\\) m³\n\n2. Calculate water use per resident:\n   - Harrowfield: \\(7,146,000 \\div 90,212 \\approx 79.2134\\) m³ per resident\n   - Ossbridge: \\(3,862,000 \\div 52,904 \\approx 73.0002\\) m³ per resident\n\n3. Apply the 2025 tariff of 142.35 tenge per m³:\n   - Harrowfield: \\(79.2134 \\times 142.35 \\approx 11,272.51\\) tenge per resident\n   - Ossbridge: \\(73.0002 \\times 142.35 \\approx 10,388.05\\) tenge per resident\n\n4. Difference:\n   \\[\n   11,272.51 - 10,388.05 \\approx 884.46\n   \\]\n\nHarrowfield households paid more, by approximately **884.46 tenge per resident**.\n\nANSWER: Harrowfield | 884.46",
+      "1. Convert household water use from megalitres to cubic metres:\n\n- **Harrowfield:** 7,146 ML = 7,146,000 m³  \n- **Ossbridge:** 3,862 ML = 3,862,000 m³  \n\n2. Calculate water use per resident:\n\n- **Harrowfield:** 7,146,000 ÷ 90,212 = **79.2134 m³ per resident**\n- **Ossbridge:** 3,862,000 ÷ 52,904 = **73.0002 m³ per resident**\n\n3. Apply the 2025 tariff of **142.35 tenge per m³**:\n\n- **Harrowfield:** 79.2134 × 142.35 = **11,273.82 tenge per resident**\n- **Ossbridge:** 73.0002 × 142.35 = **10,389.36 tenge per resident**\n\n4. Difference:\n\n**11,273.82 − 10,389.36 = 884.46 tenge per resident**\n\nTherefore, **Harrowfield households paid more**, by **884.46 tenge per resident**.\n\nANSWER: Harrowfield | 884.46 tenge per resident"
+    ],
+    "input_tokens": 10855,
+    "output_tokens": 4785,
+    "time": 49.47458362579346,
+    "log": [
+      {
+        "sample_1": "1. Convert household water use from megalitres to cubic metres:  \n   - Harrowfield: \\(7,146 \\times 1,000 = 7,146,000\\) m³  \n   - Ossbridge: \\(3,862 \\times 1,000 = 3,862,000\\) m³\n\n2. Calculate total household water payments at 142.35 tenge per m³:  \n   - Harrowfield: \\(7,146,000 \\times 142.35 = 1,017,233,100\\) tenge  \n   - Ossbridge: \\(3,862,000 \\times 142.35 = 549,755,700\\) tenge\n\n3. Calculate payment per resident:  \n   - Harrowfield: \\(1,017,233,100 \\div 90,212 \\approx 11,276.03\\) tenge  \n   - Ossbridge: \\(549,755,700 \\div 52,904 \\approx 10,391.57\\) tenge\n\n4. Difference:  \n   \\(11,276.03 - 10,391.57 = 884.46\\) tenge per resident.\n\nTherefore, Harrowfield households paid more, by approximately **884.46 tenge per resident**.\n\nANSWER: Harrowfield | 884.46"
+      },
+      {
+        "sample_2": "1. **Convert household water use to cubic metres:**\n   - Harrowfield: \\(7{,}146\\) megalitres \\(= 7{,}146{,}000\\) m³\n   - Ossbridge: \\(3{,}862\\) megalitres \\(= 3{,}862{,}000\\) m³\n\n2. **Calculate water use per resident:**\n   - Harrowfield: \\(7{,}146{,}000 \\div 90{,}212 \\approx 79.2134\\) m³ per resident\n   - Ossbridge: \\(3{,}862{,}000 \\div 52{,}904 \\approx 73.0002\\) m³ per resident\n\n3. **Apply the 2025 tariff of 142.35 tenge per m³:**\n   - Harrowfield: \\(79.2134 \\times 142.35 \\approx 11{,}274.52\\) tenge per resident\n   - Ossbridge: \\(73.0002 \\times 142.35 \\approx 10{,}390.06\\) tenge per resident\n\n4. **Difference:**\n   \\[\n   11{,}274.52 - 10{,}390.06 \\approx 884.46\n   \\]\n\n**Harrowfield households paid more, by approximately 884.46 tenge per resident.**\n\nANSWER: Harrowfield | 884.46 tenge per resident"
+      },
+      {
+        "sample_3": "1. Convert household water use from megalitres to cubic metres:\n   - Harrowfield: \\(7,146 \\times 1,000 = 7,146,000\\) m³\n   - Ossbridge: \\(3,862 \\times 1,000 = 3,862,000\\) m³\n\n2. Calculate water use per resident:\n   - Harrowfield: \\(7,146,000 \\div 90,212 \\approx 79.2134\\) m³ per resident\n   - Ossbridge: \\(3,862,000 \\div 52,904 \\approx 73.0002\\) m³ per resident\n\n3. Apply the 2025 tariff of 142.35 tenge per m³:\n   - Harrowfield: \\(79.2134 \\times 142.35 \\approx 11,276.03\\) tenge per resident\n   - Ossbridge: \\(73.0002 \\times 142.35 \\approx 10,391.57\\) tenge per resident\n\n4. Difference:\n   \\[\n   11,276.03 - 10,391.57 = 884.46\n   \\]\n\nHarrowfield households paid more, by approximately 884.46 tenge per resident.\n\nANSWER: Harrowfield | 884.46 tenge per resident"
+      },
+      {
+        "sample_4": "1. Convert household water use from megalitres to cubic metres:\n   - Harrowfield: \\(7,146 \\times 1,000 = 7,146,000\\) m³\n   - Ossbridge: \\(3,862 \\times 1,000 = 3,862,000\\) m³\n\n2. Calculate water use per resident:\n   - Harrowfield: \\(7,146,000 \\div 90,212 \\approx 79.2134\\) m³ per resident\n   - Ossbridge: \\(3,862,000 \\div 52,904 \\approx 73.0002\\) m³ per resident\n\n3. Apply the 2025 tariff of 142.35 tenge per m³:\n   - Harrowfield: \\(79.2134 \\times 142.35 \\approx 11,272.51\\) tenge per resident\n   - Ossbridge: \\(73.0002 \\times 142.35 \\approx 10,388.05\\) tenge per resident\n\n4. Difference:\n   \\[\n   11,272.51 - 10,388.05 \\approx 884.46\n   \\]\n\nHarrowfield households paid more, by approximately **884.46 tenge per resident**.\n\nANSWER: Harrowfield | 884.46"
+      },
+      {
+        "sample_5": "1. Convert household water use from megalitres to cubic metres:\n\n- **Harrowfield:** 7,146 ML = 7,146,000 m³  \n- **Ossbridge:** 3,862 ML = 3,862,000 m³  \n\n2. Calculate water use per resident:\n\n- **Harrowfield:** 7,146,000 ÷ 90,212 = **79.2134 m³ per resident**\n- **Ossbridge:** 3,862,000 ÷ 52,904 = **73.0002 m³ per resident**\n\n3. Apply the 2025 tariff of **142.35 tenge per m³**:\n\n- **Harrowfield:** 79.2134 × 142.35 = **11,273.82 tenge per resident**\n- **Ossbridge:** 73.0002 × 142.35 = **10,389.36 tenge per resident**\n\n4. Difference:\n\n**11,273.82 − 10,389.36 = 884.46 tenge per resident**\n\nTherefore, **Harrowfield households paid more**, by **884.46 tenge per resident**.\n\nANSWER: Harrowfield | 884.46 tenge per resident"
+      }
+    ],
+    "answer": "ANSWER: Harrowfield | 884.46",
+    "correct": true
+  },
+  "S3": {
+    "answer": "At the 2025 tariff of 142.35 tenge per cubic metre:\n\n- **Harrowfield:** 11,276.03 tenge per resident  \n- **Ossbridge:** 10,391.57 tenge per resident  \n\nHarrowfield households paid **884.46 tenge more per resident**.\n\nANSWER: Harrowfield | 884.46",
+    "input_tokens": 1952,
+    "output_tokens": 454,
+    "time": 8.907482147216797,
+    "log": [
+      {
+        "round": 1,
+        "tool": "lookup",
+        "inputs": "{\"target\":\"Harrowfield\",\"query\":\"2025 population and household water tariff, or total household water payments in 2025\"}",
+        "result": "{\"result\": \"[NR-07] Harrowfield district profile (2025): Founded in 1862 on the Harrow, Harrowfield covers 1,388.5 square kilometres. Its budget for 2025 was set at 16,021.7 million tenge. Household water use in 2025 came to 7,146 megalitres. There are 36 schools in the district, attended by 13,904 pupils in 2025/26. The 2025 census recorded 90,212 residents; the 2020 census had recorded 83,609. The district's paved road network is 1,037.2 km long.\"}",
+        "duration_sec": 0.0
+      },
+      {
+        "round": 1,
+        "tool": "lookup",
+        "inputs": "{\"target\":\"Ossbridge\",\"query\":\"2025 population and household water tariff, or total household water payments in 2025\"}",
+        "result": "{\"result\": \"[NR-01] Ossbridge district profile (2025): Founded in 1871 on the Oss, Ossbridge covers 1,284.6 square kilometres. Its budget for 2025 was set at 9,284.5 million tenge. Household water use in 2025 came to 3,862 megalitres. There are 21 schools in the district, attended by 7,413 pupils in 2025/26. The 2025 census recorded 52,904 residents; the 2020 census had recorded 48,317. The district's paved road network is 612.4 km long.\"}",
+        "duration_sec": 0.0
+      },
+      {
+        "round": 1,
+        "tool": "lookup",
+        "inputs": "{\"target\":\"Region\",\"query\":\"2025 household water tariff in tenge per cubic meter\"}",
+        "result": "{\"result\": \"[NR-15] Household water tariff: From 1 January 2025 the regional household water tariff is 142.35 tenge per cubic metre, in every district. The 2024 tariff was 131.80 tenge per cubic metre. One megalitre is 1,000 cubic metres. The tariff is charged on household use only.\"}",
+        "duration_sec": 0.0
+      },
+      {
+        "round": 2,
+        "tool": "calculate",
+        "inputs": "{\"expression\":\"7146*1000*142.35/90212\"}",
+        "result": "{\"result\": \"11276.028687979426\"}",
+        "duration_sec": 0.0
+      },
+      {
+        "round": 2,
+        "tool": "calculate",
+        "inputs": "{\"expression\":\"3862*1000*142.35/52904\"}",
+        "result": "{\"result\": \"10391.571525782549\"}",
+        "duration_sec": 0.0
+      },
+      {
+        "round": 2,
+        "tool": "calculate",
+        "inputs": "{\"expression\":\"3862*1000*142.35/52904 - 7146*1000*142.35/90212\"}",
+        "result": "{\"result\": \"-884.4571621968771\"}",
+        "duration_sec": 0.0
+      },
+      {
+        "round": 3,
+        "action": "final_answer",
+        "content": "At the 2025 tariff of 142.35 tenge per cubic metre:\n\n- **Harrowfield:** 11,276.03 tenge per resident  \n- **Ossbridge:** 10,391.57 tenge per resident  \n\nHarrowfield households paid **884.46 tenge more per resident**.\n\nANSWER: Harrowfield | 884.46"
+      }
+    ],
+    "correct": true
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "question": {
+    "id": "Q-11",
+    "question": "Of Redfen, Ashgrove and Millbrook, which district has the fewest pupils per school in 2025/26, and how many pupils per school separate the highest of the three from the lowest?",
+    "answer": "Redfen",
+    "value": 56.1,
+    "unit": "pupils per school",
+    "decimals": 2,
+    "sources": [
+      "NR-09",
+      "NR-10",
+      "NR-11"
+    ]
+  },
+  "S1": {
+    "answer": "Redfen has the fewest pupils per school: 314.7 pupils per school. Millbrook is highest at 370.8, so the difference is 56.1 pupils per school.\n\nANSWER: Redfen | 56.1",
+    "input_tokens": 2163,
+    "output_tokens": 161,
+    "time": 3.6912055015563965,
+    "log": [
+      {
+        "strategy": "S1",
+        "content": "Redfen has the fewest pupils per school: 314.7 pupils per school. Millbrook is highest at 370.8, so the difference is 56.1 pupils per school.\n\nANSWER: Redfen | 56.1"
+      }
+    ],
+    "correct": true
+  },
+  "S2": {
+    "answers": [
+      "1. **Redfen:** 3,147 pupils ÷ 10 schools = **314.7 pupils per school**.\n2. **Ashgrove:** 8,837 pupils ÷ 24 schools ≈ **368.2 pupils per school**.\n3. **Millbrook:** 5,562 pupils ÷ 15 schools = **370.8 pupils per school**.\n4. Redfen has the fewest pupils per school.\n5. The difference between the highest (Millbrook) and lowest (Redfen) is **370.8 − 314.7 = 56.1 pupils per school**.\n\nANSWER: Redfen | 56.1",
+      "1. **Redfen:** 3,147 pupils ÷ 10 schools = **314.7 pupils per school**.  \n2. **Ashgrove:** 8,837 pupils ÷ 24 schools ≈ **368.2 pupils per school**.  \n3. **Millbrook:** 5,562 pupils ÷ 15 schools = **370.8 pupils per school**.  \n4. Redfen has the fewest pupils per school. The highest is Millbrook, so the difference is:  \n   **370.8 − 314.7 = 56.1 pupils per school**.\n\nANSWER: Redfen | 56.1",
+      "1. **Redfen:** 3,147 pupils ÷ 10 schools = **314.7 pupils per school**  \n2. **Ashgrove:** 8,837 pupils ÷ 24 schools ≈ **368.2 pupils per school**  \n3. **Millbrook:** 5,562 pupils ÷ 15 schools = **370.8 pupils per school**\n\nRedfen has the fewest pupils per school. The highest is Millbrook, so the difference is:\n\n370.8 − 314.7 = **56.1 pupils per school**\n\nANSWER: Redfen | 56.1",
+      "1. **Redfen:** 3,147 pupils ÷ 10 schools = **314.7 pupils per school**  \n2. **Ashgrove:** 8,837 pupils ÷ 24 schools = **368.2 pupils per school**  \n3. **Millbrook:** 5,562 pupils ÷ 15 schools = **370.8 pupils per school**\n\nRedfen has the fewest pupils per school. The highest is Millbrook, so the difference is:\n\n**370.8 − 314.7 = 56.1 pupils per school**\n\nANSWER: Redfen | 56.1",
+      "1. **Redfen:** 3,147 pupils ÷ 10 schools = **314.7 pupils per school**  \n2. **Ashgrove:** 8,837 pupils ÷ 24 schools ≈ **368.2 pupils per school**  \n3. **Millbrook:** 5,562 pupils ÷ 15 schools = **370.8 pupils per school**\n\nRedfen has the fewest pupils per school. The highest is Millbrook, so the difference is:\n\n**370.8 − 314.7 = 56.1 pupils per school**\n\nANSWER: Redfen | 56.1"
+    ],
+    "input_tokens": 10870,
+    "output_tokens": 1168,
+    "time": 18.834430932998657,
+    "log": [
+      {
+        "sample_1": "1. **Redfen:** 3,147 pupils ÷ 10 schools = **314.7 pupils per school**.\n2. **Ashgrove:** 8,837 pupils ÷ 24 schools ≈ **368.2 pupils per school**.\n3. **Millbrook:** 5,562 pupils ÷ 15 schools = **370.8 pupils per school**.\n4. Redfen has the fewest pupils per school.\n5. The difference between the highest (Millbrook) and lowest (Redfen) is **370.8 − 314.7 = 56.1 pupils per school**.\n\nANSWER: Redfen | 56.1"
+      },
+      {
+        "sample_2": "1. **Redfen:** 3,147 pupils ÷ 10 schools = **314.7 pupils per school**.  \n2. **Ashgrove:** 8,837 pupils ÷ 24 schools ≈ **368.2 pupils per school**.  \n3. **Millbrook:** 5,562 pupils ÷ 15 schools = **370.8 pupils per school**.  \n4. Redfen has the fewest pupils per school. The highest is Millbrook, so the difference is:  \n   **370.8 − 314.7 = 56.1 pupils per school**.\n\nANSWER: Redfen | 56.1"
+      },
+      {
+        "sample_3": "1. **Redfen:** 3,147 pupils ÷ 10 schools = **314.7 pupils per school**  \n2. **Ashgrove:** 8,837 pupils ÷ 24 schools ≈ **368.2 pupils per school**  \n3. **Millbrook:** 5,562 pupils ÷ 15 schools = **370.8 pupils per school**\n\nRedfen has the fewest pupils per school. The highest is Millbrook, so the difference is:\n\n370.8 − 314.7 = **56.1 pupils per school**\n\nANSWER: Redfen | 56.1"
+      },
+      {
+        "sample_4": "1. **Redfen:** 3,147 pupils ÷ 10 schools = **314.7 pupils per school**  \n2. **Ashgrove:** 8,837 pupils ÷ 24 schools = **368.2 pupils per school**  \n3. **Millbrook:** 5,562 pupils ÷ 15 schools = **370.8 pupils per school**\n\nRedfen has the fewest pupils per school. The highest is Millbrook, so the difference is:\n\n**370.8 − 314.7 = 56.1 pupils per school**\n\nANSWER: Redfen | 56.1"
+      },
+      {
+        "sample_5": "1. **Redfen:** 3,147 pupils ÷ 10 schools = **314.7 pupils per school**  \n2. **Ashgrove:** 8,837 pupils ÷ 24 schools ≈ **368.2 pupils per school**  \n3. **Millbrook:** 5,562 pupils ÷ 15 schools = **370.8 pupils per school**\n\nRedfen has the fewest pupils per school. The highest is Millbrook, so the difference is:\n\n**370.8 − 314.7 = 56.1 pupils per school**\n\nANSWER: Redfen | 56.1"
+      }
+    ],
+    "answer": "ANSWER: Redfen | 56.1",
+    "correct": true
+  },
+  "S3": {
+    "answer": "Redfen has the fewest pupils per school, with **314.7 pupils per school**. Millbrook has the highest at **370.8**, so the difference is **56.1 pupils per school**.\n\nANSWER: Redfen | 56.1",
+    "input_tokens": 3087,
+    "output_tokens": 391,
+    "time": 10.672863721847534,
+    "log": [
+      {
+        "round": 1,
+        "tool": "lookup",
+        "inputs": "{\"target\":\"Redfen\",\"query\":\"2025/26 total pupils and number of schools\"}",
+        "result": "{\"result\": \"[NR-09] Redfen district profile (2025): Redfen lies on the Red Fen drain and was founded in 1932. The 2025 census counted 20,934 residents, up from 19,288 at the 2020 census, on an area of 677.1 square kilometres. The district runs 10 schools with 3,147 pupils enrolled in the 2025/26 school year. Its 2025 budget was 3,512.0 million tenge, and it maintains 244.6 km of paved road. Households used 1,488 megalitres of water in 2025.\"}",
+        "duration_sec": 0.0
+      },
+      {
+        "round": 1,
+        "tool": "lookup",
+        "inputs": "{\"target\":\"Ashgrove\",\"query\":\"2025/26 total pupils and number of schools\"}",
+        "result": "{\"result\": \"[NR-10] Ashgrove district profile (2025): Founded in 1878 on the Ash, Ashgrove covers 1,519.2 square kilometres. Its budget for 2025 was set at 10,488.1 million tenge. Household water use in 2025 came to 4,390 megalitres. There are 24 schools in the district, attended by 8,837 pupils in 2025/26. The 2025 census recorded 58,760 residents; the 2020 census had recorded 56,041. The district's paved road network is 733.9 km long.\"}",
+        "duration_sec": 0.0
+      },
+      {
+        "round": 1,
+        "tool": "lookup",
+        "inputs": "{\"target\":\"Millbrook\",\"query\":\"2025/26 total pupils and number of schools\"}",
+        "result": "{\"result\": \"[NR-11] Millbrook district profile (2025): Millbrook has 15 schools, which enrolled 5,562 pupils for the 2025/26 school year. The district, founded in 1897, stretches along the Mill Brook over 758.6 square kilometres and keeps 360.1 km of paved road. Census population: 34,590 in 2020 and 37,203 in 2025. Households used 2,806 megalitres of water during 2025, and the district's 2025 budget amounted to 6,305.7 million tenge.\"}",
+        "duration_sec": 0.0
+      },
+      {
+        "round": 2,
+        "tool": "calculate",
+        "inputs": "{\"expression\":\"3147 / 10\"}",
+        "result": "{\"result\": \"314.7\"}",
+        "duration_sec": 0.0
+      },
+      {
+        "round": 2,
+        "tool": "calculate",
+        "inputs": "{\"expression\":\"8837 / 24\"}",
+        "result": "{\"result\": \"368.2083333333333\"}",
+        "duration_sec": 0.0
+      },
+      {
+        "round": 2,
+        "tool": "calculate",
+        "inputs": "{\"expression\":\"5562 / 15\"}",
+        "result": "{\"result\": \"370.8\"}",
+        "duration_sec": 0.0
+      },
+      {
+        "round": 2,
+        "tool": "calculate",
+        "inputs": "{\"expression\":\"8837 / 24 - 3147 / 10\"}",
+        "result": "{\"result\": \"53.508333333333326\"}",
+        "duration_sec": 0.0
+      },
+      {
+        "round": 3,
+        "tool": "calculate",
+        "inputs": "{\"expression\":\"5562 / 15 - 3147 / 10\"}",
+        "result": "{\"result\": \"56.10000000000002\"}",
+        "duration_sec": 0.0
+      },
+      {
+        "round": 4,
+        "action": "final_answer",
+        "content": "Redfen has the fewest pupils per school, with **314.7 pupils per school**. Millbrook has the highest at **370.8**, so the difference is **56.1 pupils per school**.\n\nANSWER: Redfen | 56.1"
+      }
+    ],
+    "correct": true
+  }
+}

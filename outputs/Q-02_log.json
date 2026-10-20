@@ -1,0 +1,107 @@
+{
+  "question": {
+    "id": "Q-02",
+    "question": "Between the 2020 and 2025 censuses, which district grew faster in percentage terms, Tarnvale or Harrowfield, and by how many percentage points?",
+    "answer": "Harrowfield",
+    "value": 1.69,
+    "unit": "percentage points",
+    "decimals": 2,
+    "sources": [
+      "NR-03",
+      "NR-07"
+    ]
+  },
+  "S1": {
+    "answer": "Tarnvale grew by approximately **6.21%**:\n\n\\[\n\\frac{71,388-67,214}{67,214}\\times100\n\\]\n\nHarrowfield grew by approximately **7.90%**:\n\n\\[\n\\frac{90,212-83,609}{83,609}\\times100\n\\]\n\nTherefore, **Harrowfield grew faster by about 1.69 percentage points**.\n\nANSWER: Harrowfield | 1.69",
+    "input_tokens": 2154,
+    "output_tokens": 363,
+    "time": 5.070277452468872,
+    "log": [
+      {
+        "strategy": "S1",
+        "content": "Tarnvale grew by approximately **6.21%**:\n\n\\[\n\\frac{71,388-67,214}{67,214}\\times100\n\\]\n\nHarrowfield grew by approximately **7.90%**:\n\n\\[\n\\frac{90,212-83,609}{83,609}\\times100\n\\]\n\nTherefore, **Harrowfield grew faster by about 1.69 percentage points**.\n\nANSWER: Harrowfield | 1.69"
+      }
+    ],
+    "correct": true
+  },
+  "S2": {
+    "answers": [
+      "Using the current 2025 profiles:\n\n1. **Tarnvale**\n   - Population increase: \\(71,388 - 67,214 = 4,174\\)\n   - Percentage growth: \\(\\frac{4,174}{67,214} \\times 100 \\approx 6.21\\%\\)\n\n2. **Harrowfield**\n   - Population increase: \\(90,212 - 83,609 = 6,603\\)\n   - Percentage growth: \\(\\frac{6,603}{83,609} \\times 100 \\approx 7.90\\%\\)\n\n3. **Difference**\n   - \\(7.90\\% - 6.21\\% \\approx 1.69\\) percentage points\n\nHarrowfield grew faster, by approximately **1.69 percentage points**.\n\nANSWER: Harrowfield | 1.69 percentage points",
+      "1. **Tarnvale**\n   - Population increase: \\(71{,}388 - 67{,}214 = 4{,}174\\)\n   - Percentage growth: \\(\\frac{4{,}174}{67{,}214} \\times 100 \\approx 6.21\\%\\)\n\n2. **Harrowfield**\n   - Population increase: \\(90{,}212 - 83{,}609 = 6{,}603\\)\n   - Percentage growth: \\(\\frac{6{,}603}{83{,}609} \\times 100 \\approx 7.90\\%\\)\n\n3. **Difference**\n   - \\(7.90\\% - 6.21\\% \\approx 1.69\\) percentage points\n\n**Harrowfield grew faster, by approximately 1.69 percentage points.**\n\nANSWER: Harrowfield | 1.69 percentage points",
+      "1. **Tarnvale growth:**\n   - Increase: \\(71,388 - 67,214 = 4,174\\)\n   - Percentage growth: \\(\\frac{4,174}{67,214} \\times 100 \\approx 6.21\\%\\)\n\n2. **Harrowfield growth:**\n   - Increase: \\(90,212 - 83,609 = 6,603\\)\n   - Percentage growth: \\(\\frac{6,603}{83,609} \\times 100 \\approx 7.90\\%\\)\n\n3. **Difference:**\n   - \\(7.90\\% - 6.21\\% = 1.69\\) percentage points\n\nHarrowfield grew faster, by approximately **1.69 percentage points**.\n\nANSWER: Harrowfield | 1.69 percentage points",
+      "1. **Tarnvale growth:**\n   - Increase: 71,388 − 67,214 = **4,174 residents**\n   - Percentage growth: \\(4,174 \\div 67,214 \\times 100 \\approx 6.21\\%\\)\n\n2. **Harrowfield growth:**\n   - Increase: 90,212 − 83,609 = **6,603 residents**\n   - Percentage growth: \\(6,603 \\div 83,609 \\times 100 \\approx 7.90\\%\\)\n\n3. **Difference:**\n   - 7.90% − 6.21% = **1.69 percentage points**\n\nHarrowfield grew faster, by approximately **1.69 percentage points**.\n\nANSWER: Harrowfield | 1.69 percentage points",
+      "1. **Tarnvale growth:**\n   - Increase: 71,388 − 67,214 = **4,174 residents**\n   - Percentage growth: \\(4,174 \\div 67,214 \\times 100 \\approx 6.21\\%\\)\n\n2. **Harrowfield growth:**\n   - Increase: 90,212 − 83,609 = **6,603 residents**\n   - Percentage growth: \\(6,603 \\div 83,609 \\times 100 \\approx 7.90\\%\\)\n\n3. **Difference:**\n   - \\(7.90\\% - 6.21\\% = 1.69\\) percentage points\n\nHarrowfield grew faster by **1.69 percentage points**.\n\nANSWER: Harrowfield | 1.69 percentage points"
+    ],
+    "input_tokens": 10825,
+    "output_tokens": 2100,
+    "time": 25.401074647903442,
+    "log": [
+      {
+        "sample_1": "Using the current 2025 profiles:\n\n1. **Tarnvale**\n   - Population increase: \\(71,388 - 67,214 = 4,174\\)\n   - Percentage growth: \\(\\frac{4,174}{67,214} \\times 100 \\approx 6.21\\%\\)\n\n2. **Harrowfield**\n   - Population increase: \\(90,212 - 83,609 = 6,603\\)\n   - Percentage growth: \\(\\frac{6,603}{83,609} \\times 100 \\approx 7.90\\%\\)\n\n3. **Difference**\n   - \\(7.90\\% - 6.21\\% \\approx 1.69\\) percentage points\n\nHarrowfield grew faster, by approximately **1.69 percentage points**.\n\nANSWER: Harrowfield | 1.69 percentage points"
+      },
+      {
+        "sample_2": "1. **Tarnvale**\n   - Population increase: \\(71{,}388 - 67{,}214 = 4{,}174\\)\n   - Percentage growth: \\(\\frac{4{,}174}{67{,}214} \\times 100 \\approx 6.21\\%\\)\n\n2. **Harrowfield**\n   - Population increase: \\(90{,}212 - 83{,}609 = 6{,}603\\)\n   - Percentage growth: \\(\\frac{6{,}603}{83{,}609} \\times 100 \\approx 7.90\\%\\)\n\n3. **Difference**\n   - \\(7.90\\% - 6.21\\% \\approx 1.69\\) percentage points\n\n**Harrowfield grew faster, by approximately 1.69 percentage points.**\n\nANSWER: Harrowfield | 1.69 percentage points"
+      },
+      {
+        "sample_3": "1. **Tarnvale growth:**\n   - Increase: \\(71,388 - 67,214 = 4,174\\)\n   - Percentage growth: \\(\\frac{4,174}{67,214} \\times 100 \\approx 6.21\\%\\)\n\n2. **Harrowfield growth:**\n   - Increase: \\(90,212 - 83,609 = 6,603\\)\n   - Percentage growth: \\(\\frac{6,603}{83,609} \\times 100 \\approx 7.90\\%\\)\n\n3. **Difference:**\n   - \\(7.90\\% - 6.21\\% = 1.69\\) percentage points\n\nHarrowfield grew faster, by approximately **1.69 percentage points**.\n\nANSWER: Harrowfield | 1.69 percentage points"
+      },
+      {
+        "sample_4": "1. **Tarnvale growth:**\n   - Increase: 71,388 − 67,214 = **4,174 residents**\n   - Percentage growth: \\(4,174 \\div 67,214 \\times 100 \\approx 6.21\\%\\)\n\n2. **Harrowfield growth:**\n   - Increase: 90,212 − 83,609 = **6,603 residents**\n   - Percentage growth: \\(6,603 \\div 83,609 \\times 100 \\approx 7.90\\%\\)\n\n3. **Difference:**\n   - 7.90% − 6.21% = **1.69 percentage points**\n\nHarrowfield grew faster, by approximately **1.69 percentage points**.\n\nANSWER: Harrowfield | 1.69 percentage points"
+      },
+      {
+        "sample_5": "1. **Tarnvale growth:**\n   - Increase: 71,388 − 67,214 = **4,174 residents**\n   - Percentage growth: \\(4,174 \\div 67,214 \\times 100 \\approx 6.21\\%\\)\n\n2. **Harrowfield growth:**\n   - Increase: 90,212 − 83,609 = **6,603 residents**\n   - Percentage growth: \\(6,603 \\div 83,609 \\times 100 \\approx 7.90\\%\\)\n\n3. **Difference:**\n   - \\(7.90\\% - 6.21\\% = 1.69\\) percentage points\n\nHarrowfield grew faster by **1.69 percentage points**.\n\nANSWER: Harrowfield | 1.69 percentage points"
+      }
+    ],
+    "answer": "ANSWER: Harrowfield | 1.69",
+    "correct": true
+  },
+  "S3": {
+    "answer": "Harrowfield grew faster: its population increased by **7.90%**, compared with **6.21%** for Tarnvale—a difference of **1.69 percentage points**.\n\nANSWER: Harrowfield | 1.69 percentage points",
+    "input_tokens": 1633,
+    "output_tokens": 282,
+    "time": 6.593556880950928,
+    "log": [
+      {
+        "round": 1,
+        "tool": "lookup",
+        "inputs": "{\"target\":\"Tarnvale\",\"query\":\"2020 and 2025 census populations\"}",
+        "result": "{\"result\": \"[NR-03] Tarnvale district profile (2025): Tarnvale lies on the Tarn and was founded in 1854. The 2025 census counted 71,388 residents, up from 67,214 at the 2020 census, on an area of 2,106.9 square kilometres. The district runs 29 schools with 10,652 pupils enrolled in the 2025/26 school year. Its 2025 budget was 12,960.3 million tenge, and it maintains 944.7 km of paved road. Households used 5,207 megalitres of water in 2025.\"}",
+        "duration_sec": 0.0
+      },
+      {
+        "round": 1,
+        "tool": "lookup",
+        "inputs": "{\"target\":\"Harrowfield\",\"query\":\"2020 and 2025 census populations\"}",
+        "result": "{\"result\": \"[NR-07] Harrowfield district profile (2025): Founded in 1862 on the Harrow, Harrowfield covers 1,388.5 square kilometres. Its budget for 2025 was set at 16,021.7 million tenge. Household water use in 2025 came to 7,146 megalitres. There are 36 schools in the district, attended by 13,904 pupils in 2025/26. The 2025 census recorded 90,212 residents; the 2020 census had recorded 83,609. The district's paved road network is 1,037.2 km long.\"}",
+        "duration_sec": 0.0
+      },
+      {
+        "round": 2,
+        "tool": "calculate",
+        "inputs": "{\"expression\":\"(71388-67214)/67214*100\"}",
+        "result": "{\"result\": \"6.210015770523998\"}",
+        "duration_sec": 0.0
+      },
+      {
+        "round": 2,
+        "tool": "calculate",
+        "inputs": "{\"expression\":\"(90212-83609)/83609*100\"}",
+        "result": "{\"result\": \"7.8974751521965345\"}",
+        "duration_sec": 0.0
+      },
+      {
+        "round": 2,
+        "tool": "calculate",
+        "inputs": "{\"expression\":\"((90212-83609)/83609*100)-((71388-67214)/67214*100)\"}",
+        "result": "{\"result\": \"1.6874593816725367\"}",
+        "duration_sec": 0.0
+      },
+      {
+        "round": 3,
+        "action": "final_answer",
+        "content": "Harrowfield grew faster: its population increased by **7.90%**, compared with **6.21%** for Tarnvale—a difference of **1.69 percentage points**.\n\nANSWER: Harrowfield | 1.69 percentage points"
+      }
+    ],
+    "correct": true
+  }
+}

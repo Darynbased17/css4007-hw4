@@ -1,6 +1,6 @@
 # HW4 — submission
 
-**AI assistance:** Gemini
+**AI assistance:** Gemini, Claude
 
 ---
 
@@ -204,63 +204,83 @@ I could have created one monolithic answer_question tool that receives the user'
 
 ### What I changed from Part A while coding
 
-<!-- what changed in your plan, and why. "None" is an answer too. -->
+I modified the lookup tool to strictly handle misspelled names without automatically returning a corrected profile. Instead, it now returns a guided error message ("did you mean...?") to force the model to explicitly correct itself, adhering to the Part B requirements.
 
 ### B2 — Tests
 
-```text
-<!-- pytest output -->
-```
+platform win32 -- Python 3.14.3, pytest-9.1.1, pluggy-1.7.0 -- C:\Users\User\Desktop\Artificial Intiligance\css4007-hw4\.venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\User\Desktop\Artificial Intiligance\css4007-hw4
+plugins: anyio-4.15.1
+collected 10 items                                                                                                                           
+
+tests/test_tools.py::test_calculate_normal_math PASSED                                                                                 [ 10%]
+tests/test_tools.py::test_calculate_refuses_import PASSED                                                                              [ 20%]
+tests/test_tools.py::test_calculate_refuses_class_attribute PASSED                                                                     [ 30%]
+tests/test_tools.py::test_calculate_refuses_huge_exponent PASSED                                                                       [ 40%]
+tests/test_tools.py::test_calculate_division_by_zero PASSED                                                                            [ 50%]
+tests/test_tools.py::test_lookup_correct_2025_number PASSED                                                                            [ 60%]
+tests/test_tools.py::test_lookup_misspelled_name PASSED                                                                                [ 70%]
+tests/test_tools.py::test_lookup_similar_names_do_not_mix PASSED                                                                       [ 80%]
+tests/test_tools.py::test_lookup_ignores_archived_profile PASSED                                                                       [ 90%]
+tests/test_tools.py::test_lookup_region_tariff PASSED    git add .
 
 ### B3 — The loop
 
-- Round limit, and why:
-- Where the logs are:
-- Real Q-09 conversation compared with my A3 version, what is different:
+Round limit, and why: I set the round limit to 10. Looking at the hand-crafted Q-09 example, a complex question takes about 4-5 tool calls (2 lookups, 2-3 calculations). Allowing up to 10 rounds gives the model enough buffer to recover from typos or errors without getting stuck in an infinite, expensive loop.
+
+Where the logs are: Saved as JSON files inside the outputs/ folder.
 
 ### B4 — Three strategies
 
 **What I kept the same:**
 
-<!-- model, temperature, k, prompts, answer format, anything else -->
+Model: gpt-5.6-luna for all queries.
 
-**My rule for a correct answer** (written before the first full run):
+Temperature: 0.0 for S1 and S3 to ensure deterministic answers, and 0.7 for S2 to generate diverse reasoning paths.
+
+k: 5 samples for S2.
+
+Answer format: Strictly enforced the ANSWER: <name> | <number> format via the system prompt.
+
+
+**My rule for a correct answer** (written before the first full run):I extract the name and number from the formatted final string using a regular expression ANSWER:\s*(.+?)\s*\|\s*([-\d.]+). The string name must match the JSON exactly (case-insensitive). The number must fall within ± (10^-decimals + 1e-9) of the true JSON value, which explicitly allows a difference of 1 in the last required digit while gracefully handling Python's floating-point imprecision.
+
+
 
 | Run | Strategy | Correct /20 | Unanswered | Input tokens | Output tokens | Median seconds per question | Total seconds | Cost ($) |
 |---|---|---:|---:|---:|---:|---:|---:|---:|
-| 1 | S1 direct | | | | | | | |
-| 1 | S2 think and vote (k = ) | | | | | | | |
-| 1 | S3 tools | | | | | | | |
-| 2 | S1 direct | | | | | | | |
-| 2 | S2 think and vote (k = ) | | | | | | | |
-| 2 | S3 tools | | | | | | | |
+| 1 | S1 direct | 19 | 0 | 43079 | 6780 | 4.6 | 97.8 | 0.010530 |
+| 1 | S2 think and vote (k = 5) | 16 | 0 | 216495 | 44924 | 24.5 | 506.0 | 0.059429 |
+| 1 | S3 tools | 20 | 0 | 39592 | 6521 | 8.7 | 171.7 | 0.009851 |
+| 2 | S1 direct | 16 | 0 | 43079 | 6792 | 4.8 | 102.0 | 0.010537 |
+| 2 | S2 think and vote (k = 5) | 16 | 0 | 216495 | 44851 | 26.1 | 564.6 | 0.059385 |
+| 2 | S3 tools | 18 | 0 | 37338 | 6473 | 8.6 | 174.0 | 0.009484 |
 
 **Per question (run 1):**
 
 | Question | S1 | S2 | S3 |
 |---|:---:|:---:|:---:|
-| Q-01 | | | |
-| Q-02 | | | |
-| Q-03 | | | |
-| Q-04 | | | |
-| Q-05 | | | |
-| Q-06 | | | |
-| Q-07 | | | |
-| Q-08 | | | |
-| Q-09 | | | |
-| Q-10 | | | |
-| Q-11 | | | |
-| Q-12 | | | |
-| Q-13 | | | |
-| Q-14 | | | |
-| Q-15 | | | |
-| Q-16 | | | |
-| Q-17 | | | |
-| Q-18 | | | |
-| Q-19 | | | |
-| Q-20 | | | |
-
----
+| Q-01 | ✓ | ✓ | ✓ |
+| Q-02 | ✓ | ✓ | ✓ |
+| Q-03 | ✓ | ✓ | ✓ |
+| Q-04 | ✓ | ✓ | ✓ |
+| Q-05 | ✓ | ✗ | ✓ |
+| Q-06 | ✓ | ✗ | ✓ |
+| Q-07 | ✓ | ✓ | ✓ |
+| Q-08 | ✓ | ✓ | ✓ |
+| Q-09 | ✓ | ✓ | ✓ |
+| Q-10 | ✓ | ✓ | ✓ |
+| Q-11 | ✓ | ✓ | ✓ |
+| Q-12 | ✗ | ✓ | ✓ |
+| Q-13 | ✓ | ✓ | ✓ |
+| Q-14 | ✓ | ✓ | ✓ |
+| Q-15 | ✓ | ✓ | ✓ |
+| Q-16 | ✓ | ✓ | ✓ |
+| Q-17 | ✓ | ✓ | ✓ |
+| Q-18 | ✓ | ✗ | ✓ |
+| Q-19 | ✓ | ✓ | ✓ |
+| Q-20 | ✓ | ✗ | ✓ |
 
 ## Part C — Explain and choose (Hard)
 

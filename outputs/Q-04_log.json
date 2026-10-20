@@ -1,0 +1,107 @@
+{
+  "question": {
+    "id": "Q-04",
+    "question": "Which district has more pupils per school in 2025/26, Ashgrove or Millbrook, and by how many pupils per school?",
+    "answer": "Millbrook",
+    "value": 2.59,
+    "unit": "pupils per school",
+    "decimals": 2,
+    "sources": [
+      "NR-10",
+      "NR-11"
+    ]
+  },
+  "S1": {
+    "answer": "Ashgrove: 8,837 ÷ 24 = 368.21 pupils per school.  \nMillbrook: 5,562 ÷ 15 = 370.80 pupils per school.  \n\nMillbrook has more, by **2.59 pupils per school**.\n\nANSWER: Millbrook | 2.59",
+    "input_tokens": 2149,
+    "output_tokens": 198,
+    "time": 3.710648536682129,
+    "log": [
+      {
+        "strategy": "S1",
+        "content": "Ashgrove: 8,837 ÷ 24 = 368.21 pupils per school.  \nMillbrook: 5,562 ÷ 15 = 370.80 pupils per school.  \n\nMillbrook has more, by **2.59 pupils per school**.\n\nANSWER: Millbrook | 2.59"
+      }
+    ],
+    "correct": true
+  },
+  "S2": {
+    "answers": [
+      "1. **Ashgrove:** 8,837 pupils ÷ 24 schools = **368.21 pupils per school**.\n2. **Millbrook:** 5,562 pupils ÷ 15 schools = **370.80 pupils per school**.\n3. Difference: 370.80 − 368.21 = **2.59 pupils per school**.\n\nTherefore, **Millbrook has more pupils per school by approximately 2.59 pupils per school**.\n\nANSWER: Millbrook | 2.59 pupils per school",
+      "1. **Ashgrove:** \\(8{,}837 \\div 24 = 368.21\\) pupils per school.\n2. **Millbrook:** \\(5{,}562 \\div 15 = 370.80\\) pupils per school.\n3. Difference: \\(370.80 - 368.21 = 2.59\\) pupils per school.\n\nTherefore, **Millbrook** has more pupils per school by **2.59 pupils per school**.\n\nANSWER: Millbrook | 2.59",
+      "1. **Ashgrove:** \\(8,837 \\div 24 = 368.21\\) pupils per school.  \n2. **Millbrook:** \\(5,562 \\div 15 = 370.80\\) pupils per school.  \n3. **Difference:** \\(370.80 - 368.21 = 2.59\\) pupils per school.\n\nMillbrook has more pupils per school, by approximately **2.59 pupils per school**.\n\nANSWER: Millbrook | 2.59",
+      "1. **Ashgrove:** \\(8,837 \\div 24 = 368.21\\) pupils per school.\n2. **Millbrook:** \\(5,562 \\div 15 = 370.80\\) pupils per school.\n3. Difference: \\(370.80 - 368.21 = 2.59\\).\n\n**Millbrook has more pupils per school by approximately 2.59 pupils per school.**\n\nANSWER: Millbrook | 2.59",
+      "1. **Ashgrove:** 8,837 pupils ÷ 24 schools = **368.21 pupils per school**  \n2. **Millbrook:** 5,562 pupils ÷ 15 schools = **370.80 pupils per school**  \n3. Difference: 370.80 − 368.21 = **2.59 pupils per school**\n\n**Millbrook has more pupils per school by approximately 2.59 pupils per school.**\n\nANSWER: Millbrook | 2.59"
+    ],
+    "input_tokens": 10800,
+    "output_tokens": 1147,
+    "time": 19.77706289291382,
+    "log": [
+      {
+        "sample_1": "1. **Ashgrove:** 8,837 pupils ÷ 24 schools = **368.21 pupils per school**.\n2. **Millbrook:** 5,562 pupils ÷ 15 schools = **370.80 pupils per school**.\n3. Difference: 370.80 − 368.21 = **2.59 pupils per school**.\n\nTherefore, **Millbrook has more pupils per school by approximately 2.59 pupils per school**.\n\nANSWER: Millbrook | 2.59 pupils per school"
+      },
+      {
+        "sample_2": "1. **Ashgrove:** \\(8{,}837 \\div 24 = 368.21\\) pupils per school.\n2. **Millbrook:** \\(5{,}562 \\div 15 = 370.80\\) pupils per school.\n3. Difference: \\(370.80 - 368.21 = 2.59\\) pupils per school.\n\nTherefore, **Millbrook** has more pupils per school by **2.59 pupils per school**.\n\nANSWER: Millbrook | 2.59"
+      },
+      {
+        "sample_3": "1. **Ashgrove:** \\(8,837 \\div 24 = 368.21\\) pupils per school.  \n2. **Millbrook:** \\(5,562 \\div 15 = 370.80\\) pupils per school.  \n3. **Difference:** \\(370.80 - 368.21 = 2.59\\) pupils per school.\n\nMillbrook has more pupils per school, by approximately **2.59 pupils per school**.\n\nANSWER: Millbrook | 2.59"
+      },
+      {
+        "sample_4": "1. **Ashgrove:** \\(8,837 \\div 24 = 368.21\\) pupils per school.\n2. **Millbrook:** \\(5,562 \\div 15 = 370.80\\) pupils per school.\n3. Difference: \\(370.80 - 368.21 = 2.59\\).\n\n**Millbrook has more pupils per school by approximately 2.59 pupils per school.**\n\nANSWER: Millbrook | 2.59"
+      },
+      {
+        "sample_5": "1. **Ashgrove:** 8,837 pupils ÷ 24 schools = **368.21 pupils per school**  \n2. **Millbrook:** 5,562 pupils ÷ 15 schools = **370.80 pupils per school**  \n3. Difference: 370.80 − 368.21 = **2.59 pupils per school**\n\n**Millbrook has more pupils per school by approximately 2.59 pupils per school.**\n\nANSWER: Millbrook | 2.59"
+      }
+    ],
+    "answer": "ANSWER: Millbrook | 2.59",
+    "correct": true
+  },
+  "S3": {
+    "answer": "Millbrook has more pupils per school: 370.8 compared with Ashgrove’s 368.2, a difference of approximately 2.6 pupils per school.\n\nANSWER: Millbrook | 2.6",
+    "input_tokens": 1586,
+    "output_tokens": 290,
+    "time": 7.7895989418029785,
+    "log": [
+      {
+        "round": 1,
+        "tool": "lookup",
+        "inputs": "{\"target\":\"Ashgrove\",\"query\":\"2025/26 pupil count and number of schools\"}",
+        "result": "{\"result\": \"[NR-10] Ashgrove district profile (2025): Founded in 1878 on the Ash, Ashgrove covers 1,519.2 square kilometres. Its budget for 2025 was set at 10,488.1 million tenge. Household water use in 2025 came to 4,390 megalitres. There are 24 schools in the district, attended by 8,837 pupils in 2025/26. The 2025 census recorded 58,760 residents; the 2020 census had recorded 56,041. The district's paved road network is 733.9 km long.\"}",
+        "duration_sec": 0.0
+      },
+      {
+        "round": 1,
+        "tool": "lookup",
+        "inputs": "{\"target\":\"Millbrook\",\"query\":\"2025/26 pupil count and number of schools\"}",
+        "result": "{\"result\": \"[NR-11] Millbrook district profile (2025): Millbrook has 15 schools, which enrolled 5,562 pupils for the 2025/26 school year. The district, founded in 1897, stretches along the Mill Brook over 758.6 square kilometres and keeps 360.1 km of paved road. Census population: 34,590 in 2020 and 37,203 in 2025. Households used 2,806 megalitres of water during 2025, and the district's 2025 budget amounted to 6,305.7 million tenge.\"}",
+        "duration_sec": 0.0
+      },
+      {
+        "round": 2,
+        "tool": "calculate",
+        "inputs": "{\"expression\":\"8837 / 24\"}",
+        "result": "{\"result\": \"368.2083333333333\"}",
+        "duration_sec": 0.0
+      },
+      {
+        "round": 2,
+        "tool": "calculate",
+        "inputs": "{\"expression\":\"5562 / 15\"}",
+        "result": "{\"result\": \"370.8\"}",
+        "duration_sec": 0.0
+      },
+      {
+        "round": 2,
+        "tool": "calculate",
+        "inputs": "{\"expression\":\"8837 / 24 - 5562 / 15\"}",
+        "result": "{\"result\": \"-2.591666666666697\"}",
+        "duration_sec": 0.0
+      },
+      {
+        "round": 3,
+        "action": "final_answer",
+        "content": "Millbrook has more pupils per school: 370.8 compared with Ashgrove’s 368.2, a difference of approximately 2.6 pupils per school.\n\nANSWER: Millbrook | 2.6"
+      }
+    ],
+    "correct": true
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "question": {
+    "id": "Q-08",
+    "question": "At the 2025 household water tariff, whose households paid more for water in 2025, Brightwater's or Millbrook's, and by how many million tenge?",
+    "answer": "Brightwater",
+    "value": 72.46,
+    "unit": "million tenge",
+    "decimals": 2,
+    "sources": [
+      "NR-05",
+      "NR-11",
+      "NR-15"
+    ]
+  },
+  "S1": {
+    "answer": "Brightwater’s households paid more.\n\nDifference in use: 3,315 − 2,806 = 509 megalitres = 509,000 cubic metres.\n\nAt 142.35 tenge per cubic metre:\n\n509,000 × 142.35 = 72,456,150 tenge = **72.45615 million tenge**.\n\nANSWER: Brightwater | 72.45615 million tenge",
+    "input_tokens": 2156,
+    "output_tokens": 239,
+    "time": 3.631999969482422,
+    "log": [
+      {
+        "strategy": "S1",
+        "content": "Brightwater’s households paid more.\n\nDifference in use: 3,315 − 2,806 = 509 megalitres = 509,000 cubic metres.\n\nAt 142.35 tenge per cubic metre:\n\n509,000 × 142.35 = 72,456,150 tenge = **72.45615 million tenge**.\n\nANSWER: Brightwater | 72.45615 million tenge"
+      }
+    ],
+    "correct": true
+  },
+  "S2": {
+    "answers": [
+      "1. Brightwater households used **3,315 megalitres** of water.\n2. Millbrook households used **2,806 megalitres**.\n3. Difference: \\(3,315 - 2,806 = 509\\) megalitres.\n4. Since 1 megalitre = 1,000 cubic metres, the difference is **509,000 cubic metres**.\n5. At **142.35 tenge per cubic metre**:\n\n\\[\n509{,}000 \\times 142.35 = 72{,}456{,}150 \\text{ tenge}\n\\]\n\nThat is **72.45615 million tenge**. Brightwater’s households paid more.\n\nANSWER: Brightwater | 72.45615 million tenge",
+      "1. Brightwater households used **3,315 megalitres** of water, while Millbrook households used **2,806 megalitres**.\n2. Difference in use:  \n   **3,315 − 2,806 = 509 megalitres**\n3. Since 1 megalitre = 1,000 cubic metres, the difference is **509,000 cubic metres**.\n4. At **142.35 tenge per cubic metre**:  \n   **509,000 × 142.35 = 72,456,150 tenge**\n5. This equals **72.45615 million tenge**.\n\nTherefore, **Brightwater's households paid more**, by **72.45615 million tenge**.\n\nANSWER: Brightwater | 72.45615",
+      "1. Brightwater households used **3,315 megalitres** of water.\n2. Millbrook households used **2,806 megalitres**.\n3. Difference: \\(3,315 - 2,806 = 509\\) megalitres.\n4. Since 1 megalitre = 1,000 cubic metres, the difference is **509,000 cubic metres**.\n5. At **142.35 tenge per cubic metre**:\n\n\\[\n509{,}000 \\times 142.35 = 72{,}456{,}150 \\text{ tenge}\n\\]\n\nThat is **72.45615 million tenge**.\n\nBrightwater's households paid more, by **72.45615 million tenge**.\n\nANSWER: Brightwater | 72.45615 million tenge",
+      "1. Brightwater households used **3,315 megalitres** of water.\n2. Millbrook households used **2,806 megalitres**.\n3. Difference:  \n   **3,315 − 2,806 = 509 megalitres**\n4. Convert to cubic metres:  \n   **509 × 1,000 = 509,000 cubic metres**\n5. At **142.35 tenge per cubic metre**:  \n   **509,000 × 142.35 = 72,456,150 tenge**\n6. In million tenge, this is **72.45615 million tenge**.\n\nBrightwater's households paid more, by **72.45615 million tenge**.\n\nANSWER: Brightwater | 72.45615 million tenge",
+      "1. Brightwater households used **3,315 megalitres** of water.\n2. Millbrook households used **2,806 megalitres**.\n3. Difference:  \n   **3,315 − 2,806 = 509 megalitres**\n4. Since 1 megalitre = 1,000 cubic metres, the difference is **509,000 cubic metres**.\n5. At **142.35 tenge per cubic metre**:  \n   **509,000 × 142.35 = 72,456,150 tenge**\n6. This equals **72.45615 million tenge**.\n\nTherefore, **Brightwater's households paid more**, by **72.45615 million tenge**.\n\nANSWER: Brightwater | 72.45615 million tenge"
+    ],
+    "input_tokens": 10835,
+    "output_tokens": 1648,
+    "time": 21.051307916641235,
+    "log": [
+      {
+        "sample_1": "1. Brightwater households used **3,315 megalitres** of water.\n2. Millbrook households used **2,806 megalitres**.\n3. Difference: \\(3,315 - 2,806 = 509\\) megalitres.\n4. Since 1 megalitre = 1,000 cubic metres, the difference is **509,000 cubic metres**.\n5. At **142.35 tenge per cubic metre**:\n\n\\[\n509{,}000 \\times 142.35 = 72{,}456{,}150 \\text{ tenge}\n\\]\n\nThat is **72.45615 million tenge**. Brightwater’s households paid more.\n\nANSWER: Brightwater | 72.45615 million tenge"
+      },
+      {
+        "sample_2": "1. Brightwater households used **3,315 megalitres** of water, while Millbrook households used **2,806 megalitres**.\n2. Difference in use:  \n   **3,315 − 2,806 = 509 megalitres**\n3. Since 1 megalitre = 1,000 cubic metres, the difference is **509,000 cubic metres**.\n4. At **142.35 tenge per cubic metre**:  \n   **509,000 × 142.35 = 72,456,150 tenge**\n5. This equals **72.45615 million tenge**.\n\nTherefore, **Brightwater's households paid more**, by **72.45615 million tenge**.\n\nANSWER: Brightwater | 72.45615"
+      },
+      {
+        "sample_3": "1. Brightwater households used **3,315 megalitres** of water.\n2. Millbrook households used **2,806 megalitres**.\n3. Difference: \\(3,315 - 2,806 = 509\\) megalitres.\n4. Since 1 megalitre = 1,000 cubic metres, the difference is **509,000 cubic metres**.\n5. At **142.35 tenge per cubic metre**:\n\n\\[\n509{,}000 \\times 142.35 = 72{,}456{,}150 \\text{ tenge}\n\\]\n\nThat is **72.45615 million tenge**.\n\nBrightwater's households paid more, by **72.45615 million tenge**.\n\nANSWER: Brightwater | 72.45615 million tenge"
+      },
+      {
+        "sample_4": "1. Brightwater households used **3,315 megalitres** of water.\n2. Millbrook households used **2,806 megalitres**.\n3. Difference:  \n   **3,315 − 2,806 = 509 megalitres**\n4. Convert to cubic metres:  \n   **509 × 1,000 = 509,000 cubic metres**\n5. At **142.35 tenge per cubic metre**:  \n   **509,000 × 142.35 = 72,456,150 tenge**\n6. In million tenge, this is **72.45615 million tenge**.\n\nBrightwater's households paid more, by **72.45615 million tenge**.\n\nANSWER: Brightwater | 72.45615 million tenge"
+      },
+      {
+        "sample_5": "1. Brightwater households used **3,315 megalitres** of water.\n2. Millbrook households used **2,806 megalitres**.\n3. Difference:  \n   **3,315 − 2,806 = 509 megalitres**\n4. Since 1 megalitre = 1,000 cubic metres, the difference is **509,000 cubic metres**.\n5. At **142.35 tenge per cubic metre**:  \n   **509,000 × 142.35 = 72,456,150 tenge**\n6. This equals **72.45615 million tenge**.\n\nTherefore, **Brightwater's households paid more**, by **72.45615 million tenge**.\n\nANSWER: Brightwater | 72.45615 million tenge"
+      }
+    ],
+    "answer": "ANSWER: Brightwater | 72.45615",
+    "correct": true
+  },
+  "S3": {
+    "answer": "Brightwater’s households paid more: **72.45615 million tenge** more than Millbrook’s.\n\nANSWER: Brightwater | 72.45615 million tenge",
+    "input_tokens": 1933,
+    "output_tokens": 270,
+    "time": 7.373855829238892,
+    "log": [
+      {
+        "round": 1,
+        "tool": "lookup",
+        "inputs": "{\"target\":\"Brightwater\",\"query\":\"2025 population and number of households, and applicable household water tariff\"}",
+        "result": "{\"result\": \"[NR-05] Brightwater district profile (2025): Brightwater has 17 schools, which enrolled 6,241 pupils for the 2025/26 school year. The district, founded in 1889, stretches along the Bright over 912.4 square kilometres and keeps 455.0 km of paved road. Census population: 39,902 in 2020 and 44,675 in 2025. Households used 3,315 megalitres of water during 2025, and the district's 2025 budget amounted to 7,733.9 million tenge. | [NR-16] Correction notice - Brightwater: Correction: the 2025 Brightwater district profile gives the district's area as 912.4 square kilometres. This is a transposition error. The correct area is 921.4 square kilometres. All other figures in that profile are correct.\"}",
+        "duration_sec": 0.0
+      },
+      {
+        "round": 1,
+        "tool": "lookup",
+        "inputs": "{\"target\":\"Millbrook\",\"query\":\"2025 population and number of households, and applicable household water tariff\"}",
+        "result": "{\"result\": \"[NR-11] Millbrook district profile (2025): Millbrook has 15 schools, which enrolled 5,562 pupils for the 2025/26 school year. The district, founded in 1897, stretches along the Mill Brook over 758.6 square kilometres and keeps 360.1 km of paved road. Census population: 34,590 in 2020 and 37,203 in 2025. Households used 2,806 megalitres of water during 2025, and the district's 2025 budget amounted to 6,305.7 million tenge.\"}",
+        "duration_sec": 0.0
+      },
+      {
+        "round": 1,
+        "tool": "lookup",
+        "inputs": "{\"target\":\"Region\",\"query\":\"2025 household water tariff\"}",
+        "result": "{\"result\": \"[NR-15] Household water tariff: From 1 January 2025 the regional household water tariff is 142.35 tenge per cubic metre, in every district. The 2024 tariff was 131.80 tenge per cubic metre. One megalitre is 1,000 cubic metres. The tariff is charged on household use only.\"}",
+        "duration_sec": 0.0
+      },
+      {
+        "round": 2,
+        "tool": "calculate",
+        "inputs": "{\"expression\":\"(3315 - 2806) * 1000 * 142.35 / 1000000\"}",
+        "result": "{\"result\": \"72.45615\"}",
+        "duration_sec": 0.0
+      },
+      {
+        "round": 3,
+        "action": "final_answer",
+        "content": "Brightwater’s households paid more: **72.45615 million tenge** more than Millbrook’s.\n\nANSWER: Brightwater | 72.45615 million tenge"
+      }
+    ],
+    "correct": true
+  }
+}
